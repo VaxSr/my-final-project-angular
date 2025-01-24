@@ -17,16 +17,42 @@ export class AmministrazioneComponent implements OnInit {
 
   isOpenDialog = signal<boolean>(false);
 
-  toggleDialog() {
-    console.log('ciao');
-    this.isOpenDialog.set(!this.isOpenDialog());
+  toggleToast(message: string) {
+    const toast = document.getElementById('toast');
+    if (toast) {
+      toast.classList.add('show');
+      toast.setAttribute('aria-live', 'assertive');
+      toast.setAttribute('aria-atomic', 'true');
+      toast.innerText = message;
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
   }
 
-  ngOnInit(): void {
+  toggleDialog() {
+    this.isOpenDialog.set(!this.isOpenDialog());
+    if (!this.isOpenDialog()) {
+      this.fetchCorsi();
+    }
+  }
+
+  fetchCorsi() {
     this.corsiService.getCorsi().subscribe({
       next: (corsi) => {
         this.corsi.set(corsi);
       },
     });
+  }
+  deleteCorso(id: string) {
+    this.corsiService.deleteCorso(id).subscribe({
+      next: () => {
+        this.toggleToast('Corso eliminato con successo');
+        this.fetchCorsi();
+      },
+    });
+  }
+  ngOnInit(): void {
+    this.fetchCorsi();
   }
 }

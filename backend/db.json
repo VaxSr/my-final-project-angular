@@ -79,26 +79,6 @@
       "capacitaMassima": 10,
       "numeroPartecipanti": 0,
       "image": "http://localhost:3000/images/c-8.jpg"
-    },
-    {
-      "id": "9",
-      "nome": "Step",
-      "descrizione": "Aerobica con step",
-      "istruttore": "Anna Romano",
-      "durata": 45,
-      "capacitaMassima": 20,
-      "numeroPartecipanti": 0,
-      "image": "http://localhost:3000/images/c-9.jpg"
-    },
-    {
-      "id": "10",
-      "nome": "Functional Training",
-      "descrizione": "Allenamento funzionale completo",
-      "istruttore": "Paolo Conte",
-      "durata": 50,
-      "capacitaMassima": 15,
-      "numeroPartecipanti": 0,
-      "image": "http://localhost:3000/images/c-2.jpg"
     }
   ],
   "partecipanti": [

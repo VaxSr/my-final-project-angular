@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
-import { map } from 'rxjs/operators';
+import { map, switchMap, tap } from 'rxjs/operators';
 import { PartecipantiService } from '../partecipanti/partecipanti.service';
 
 @Injectable({
@@ -26,11 +26,18 @@ export class CorsiService {
   addCorso(corso: Corso) {
     return this.httpClient.post<Corso>(this.corsiUrl, corso);
   }
-
   addPrenotazione(corso: Corso, partecipante: Partecipante) {
     this.partecipantiService.postPartecipante(partecipante, corso.id);
     return this.httpClient.patch<Corso>(`${this.corsiUrl}/${corso.id}`, {
       numeroPartecipanti: ++corso.numeroPartecipanti,
     });
+  }
+
+  deleteCorso(id: string) {
+    return this.httpClient.delete(`${this.corsiUrl}/${id}`).pipe(
+      tap(() => {
+        this.partecipantiService.deletePartecipanteByCorso(id);
+      })
+    );
   }
 }

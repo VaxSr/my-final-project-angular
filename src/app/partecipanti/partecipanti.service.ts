@@ -14,15 +14,13 @@ export class PartecipantiService {
       .get<Partecipante[]>(`${this.url}`)
       .pipe(
         map((partecipanti) =>
-          partecipanti.filter(
-            (partecipante) => partecipante.idCorso === idCorso
-          )
+          partecipanti
+            .filter((partecipante) => partecipante.idCorso === idCorso)
+            .reverse()
         )
       );
   }
-
   postPartecipante(partecipante: Partecipante, idCorso: string) {
-    console.log(partecipante);
     return this.httpClient
       .post<Partecipante>(this.url, {
         ...partecipante,
@@ -37,5 +35,27 @@ export class PartecipantiService {
           console.log(error);
         },
       });
+  }
+
+  deletePartecipanteByCorso(idCorso: string) {
+    this.httpClient.get<Partecipante[]>(this.url).subscribe({
+      next: (partecipanti) => {
+        partecipanti
+          .filter((partecipante) => partecipante.idCorso === idCorso)
+          .forEach((partecipante) => {
+            this.httpClient.delete(`${this.url}/${partecipante.id}`).subscribe({
+              next: () => {
+                console.log('partecipante eliminato');
+              },
+              error: (error) => {
+                console.log(error);
+              },
+            });
+          });
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
   }
 }

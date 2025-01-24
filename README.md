@@ -1,27 +1,24 @@
-# MyFinalProject
+# Esame finale Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.12.
+### Routes
 
-## Development server
+- Home
+- Chi siamo
+- Nostri corsi
+- Amministrazione
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+#### Spiegazione pagine
 
-## Code scaffolding
+- Nella pagina Home viene visualizzata una hero e di 4 corsi che permette di accedere ai dettagli/prenotazione di ogni corso cliccando sul pulsante "Prenota Corso", se il corso ha raggiunto la capienza massima non è possibile prenotare il corso.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Nella pagina corsi vengono visualizzati tutti i corsi presenti nel database, cliccando su Prenota corso avviene la stessa cosa presente nella home.
+- Nella pagina Amministrazione vengono visualizzati tutti i corsi presenti nel database, sarà possibile vedere ogni partecipante del corso, aggiungere e rimuovere corsi. Alla rimozione di un corso, tutti i partecipanti saranno rimossi.
 
-## Build
+### Spiegazione componenti
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- App component: gestisce la navigazione e il router-outlet principale che permette di visualizzare le varie pagine.
+- corso: crea la card
+- corso-info: permette di visualizzare i dettagli del corso e il form per prenotare il corso
+- corsi: permette di visualizzare tutti i corsi presenti nel database
+- partecipanti: permette di visualizzare tutti i partecipanti del corso
+- add-corso: modale presente in amministrazione che permette di aggiungere un nuovo corso

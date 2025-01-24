@@ -26,7 +26,11 @@
         <tbody>
           @for (corso of corsi(); track $index) {
           <tr>
-            <th><button class="btn btn-danger">Elimina Corso</button></th>
+            <th>
+              <button class="btn btn-danger" (click)="deleteCorso(corso.id)">
+                Elimina Corso
+              </button>
+            </th>
             <th scope="row">{{ $index + 1 }}</th>
             <td>{{ corso?.nome }}</td>
             <td>{{ corso?.istruttore }}</td>
@@ -52,6 +56,24 @@
 @if(isOpenDialog()){
 <app-add-corso
   [isOpen]="isOpenDialog()"
-  [toggleDialog]="toggleDialog"
+  (close)="toggleDialog()"
 ></app-add-corso>
 }
+
+<div
+  class="toast-container position-fixed p-3"
+  style="right: 50px; bottom: 50px; width: 400px; height: 20rem"
+>
+  <div
+    class="toast"
+    style="
+      background-color: rgb(102, 209, 102);
+      height: 2em;
+      font-size: 1.25rem;
+    "
+    id="toast"
+    role="alert"
+    aria-live="assertive"
+    aria-atomic="true"
+  ></div>
+</div>

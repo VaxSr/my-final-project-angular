@@ -16,6 +16,7 @@ import { CorsiService } from '../corsi.service';
 })
 export class CorsoInfoComponent {
   idCorso = input.required<string>();
+  isOpen = input.required<string>();
   corsiService = inject(CorsiService);
   corso = signal<Corso | null>(null);
 

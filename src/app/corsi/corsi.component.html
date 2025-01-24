@@ -2,12 +2,12 @@
 
 <div class="container">
   <div class="row">
-    <div class="col">
+    <div class="col-3">
       @for (corso of corsi(); track $index) {
       <app-corso [corso]="corso"></app-corso>
       }
     </div>
-    <div class="col">
+    <div class="col-7">
       <router-outlet></router-outlet>
     </div>
   </div>

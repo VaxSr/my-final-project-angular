@@ -1,6 +1,5 @@
-<dialog open="{{ isOpen() }}" (click)="toggleDialog()">
-  <button class="btn btn-danger" (click)="toggleDialog()">Chiudi</button>
-  <div class="form-container">
+<dialog open="{{ isOpen() }}" (click)="onClose()">
+  <div class="form-container" (click)="$event.stopPropagation()">
     <h3>Aggiungi Corso</h3>
     <form (ngSubmit)="onSubmit()" [formGroup]="form">
       <div class="mb-3">
@@ -14,11 +13,11 @@
         />
       </div>
       <div class="mb-3">
-        <label for="cognome" class="form-label">Cognome</label>
+        <label for="descrizione" class="form-label">Descrizione</label>
         <input
           type="text"
           class="form-control"
-          id="cognome"
+          id="descrizione"
           [formControl]="form.controls.descrizione"
           required=""
         />
