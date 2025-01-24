@@ -1,0 +1,57 @@
+<h1>Amministrazione</h1>
+
+<div class="container">
+  <div class="row">
+    <button class="btn btn-success" (click)="toggleDialog()">
+      Aggiungi Corso
+    </button>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">#</th>
+            <th scope="col">NomeCorso</th>
+            <th scope="col">Istruttore</th>
+            <th scope="col">durata</th>
+            <th scope="col">capacitaMassima</th>
+            <th scope="col">numeroPartecipanti</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (corso of corsi(); track $index) {
+          <tr>
+            <th><button class="btn btn-danger">Elimina Corso</button></th>
+            <th scope="row">{{ $index + 1 }}</th>
+            <td>{{ corso?.nome }}</td>
+            <td>{{ corso?.istruttore }}</td>
+            <td>{{ corso?.durata }}</td>
+            <td>{{ corso?.capacitaMassima }}</td>
+            <td>{{ corso?.numeroPartecipanti }}</td>
+            <td>
+              <a class="btn btn-primary" [routerLink]="[corso.id]"
+                >Visualizza partecipanti</a
+              >
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+    <div class="col">
+      <router-outlet />
+    </div>
+  </div>
+</div>
+
+@if(isOpenDialog()){
+<app-add-corso
+  [isOpen]="isOpenDialog()"
+  [toggleDialog]="toggleDialog"
+></app-add-corso>
+}

@@ -1,0 +1,14 @@
+<h2>I nostri corsi</h2>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      @for (corso of corsi(); track $index) {
+      <app-corso [corso]="corso"></app-corso>
+      }
+    </div>
+    <div class="col">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

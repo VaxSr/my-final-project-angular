@@ -1,0 +1,61 @@
+<dialog open="{{ isOpen() }}" (click)="toggleDialog()">
+  <button class="btn btn-danger" (click)="toggleDialog()">Chiudi</button>
+  <div class="form-container">
+    <h3>Aggiungi Corso</h3>
+    <form (ngSubmit)="onSubmit()" [formGroup]="form">
+      <div class="mb-3">
+        <label for="nome" class="form-label">Nome Corso</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nome"
+          [formControl]="form.controls.nome"
+          required=""
+        />
+      </div>
+      <div class="mb-3">
+        <label for="cognome" class="form-label">Cognome</label>
+        <input
+          type="text"
+          class="form-control"
+          id="cognome"
+          [formControl]="form.controls.descrizione"
+          required=""
+        />
+      </div>
+      <div class="mb-3">
+        <label for="nomeIstruttore" class="form-label">Nome istruttore</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nomeIstruttore"
+          [formControl]="form.controls.istruttore"
+          required=""
+        />
+      </div>
+      <div class="mb-3">
+        <label for="durata" class="form-label">Durata</label>
+        <input
+          type="text"
+          class="form-control"
+          id="durata"
+          [formControl]="form.controls.durata"
+          required=""
+        />
+      </div>
+      <div class="mb-3">
+        <label for="durata" class="form-label">Capacità massima</label>
+        <input
+          type="number"
+          min="0"
+          class="form-control"
+          id="durata"
+          [formControl]="form.controls.capacitaMassima"
+          required=""
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</dialog>

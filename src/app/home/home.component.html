@@ -1,0 +1,39 @@
+<div
+  class="p-5 text-center bg-image rounded-3 mb-5"
+  style="background-image: url('/hero.jpg'); background-size: contain"
+>
+  <div class="mask" style="background-color: rgba(0, 0, 0, 0.6)">
+    <div class="d-flex justify-content-center align-items-center h-100">
+      <div class="text-white">
+        <h1 class="mb-3">Heading</h1>
+        <h4 class="mb-3">
+          Benvenuto nella nostra palestra! Offriamo una vasta gamma di
+          attrezzature moderne, corsi di fitness personalizzati e istruttori
+          qualificati per aiutarti a raggiungere i tuoi obiettivi di benessere.
+          Vieni a scoprire il nostro ambiente accogliente e professionale.
+        </h4>
+        <a
+          data-mdb-ripple-init
+          class="btn btn-outline-light btn-lg"
+          href="#!"
+          role="button"
+          routerLink="/corsi"
+          >I nostri corsi</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row d-flex flex-row">
+    @for (corso of corsi(); track $index) {
+    <div class="col-md-3">
+      <app-corso [corso]="corso"></app-corso>
+    </div>
+    }
+  </div>
+  <div class="row mt-4">
+    <router-outlet></router-outlet>
+  </div>
+</div>

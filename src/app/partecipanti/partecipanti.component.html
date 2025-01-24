@@ -1,0 +1,27 @@
+<h2>Partecipanti</h2>
+
+@if((partecipanti() ?? []).length > 0) {
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Cognome</th>
+      <th scope="col">Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (partecipante of partecipanti(); track $index) {
+    <tr>
+      <th scope="row">{{ $index + 1 }}</th>
+      <td>{{ partecipante.nome }}</td>
+      <td>{{ partecipante.cognome }}</td>
+      <td>{{ partecipante.email }}</td>
+    </tr>
+    }
+  </tbody>
+</table>
+}@else {
+<p>Nessun partecipante</p>
+}

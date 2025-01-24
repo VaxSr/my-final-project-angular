@@ -1,0 +1,148 @@
+{
+  "corsi": [
+    {
+      "id": "1",
+      "nome": "Meditation",
+      "descrizione": "Meditazione guidata e rilassamento",
+      "istruttore": "Giorgio Pace",
+      "durata": 30,
+      "capacitaMassima": 25,
+      "numeroPartecipanti": 5,
+      "image": "http://localhost:3000/images/c-1.jpg"
+    },
+    {
+      "id": "2",
+      "nome": "Yoga",
+      "descrizione": "Lezione di yoga per tutti i livelli",
+      "istruttore": "Maria Bianchi",
+      "durata": 60,
+      "capacitaMassima": 15,
+      "numeroPartecipanti": 1,
+      "image": "http://localhost:3000/images/c-10.jpg"
+    },
+    {
+      "id": "3",
+      "nome": "Zumba",
+      "descrizione": "Danza fitness energetica",
+      "istruttore": "Carlos Rodriguez",
+      "durata": 45,
+      "capacitaMassima": 25,
+      "numeroPartecipanti": 0,
+      "image": "http://localhost:3000/images/c-3.jpg"
+    },
+    {
+      "id": "4",
+      "nome": "Pilates",
+      "descrizione": "Allenamento per il core e la postura",
+      "istruttore": "Laura Verdi",
+      "durata": 50,
+      "capacitaMassima": 12,
+      "numeroPartecipanti": 0,
+      "image": "http://localhost:3000/images/c-4.jpg"
+    },
+    {
+      "id": "5",
+      "nome": "Spinning",
+      "descrizione": "Ciclismo indoor ad alta intensità",
+      "istruttore": "Marco Rossi",
+      "durata": 45,
+      "capacitaMassima": 20,
+      "numeroPartecipanti": 0,
+      "image": "http://localhost:3000/images/c-5.jpg"
+    },
+    {
+      "id": "6",
+      "nome": "Body Pump",
+      "descrizione": "Allenamento con pesi a ritmo di musica",
+      "istruttore": "Andrea Neri",
+      "durata": 55,
+      "capacitaMassima": 18,
+      "numeroPartecipanti": 0,
+      "image": "http://localhost:3000/images/c-6.jpg"
+    },
+    {
+      "id": "7",
+      "nome": "Kickboxing",
+      "descrizione": "Arti marziali e fitness",
+      "istruttore": "Giuseppe Bruno",
+      "durata": 60,
+      "capacitaMassima": 15,
+      "numeroPartecipanti": 0,
+      "image": "http://localhost:3000/images/c-7.jpg"
+    },
+    {
+      "id": "8",
+      "nome": "TRX",
+      "descrizione": "Allenamento in sospensione",
+      "istruttore": "Fabio Marino",
+      "durata": 40,
+      "capacitaMassima": 10,
+      "numeroPartecipanti": 0,
+      "image": "http://localhost:3000/images/c-8.jpg"
+    },
+    {
+      "id": "9",
+      "nome": "Step",
+      "descrizione": "Aerobica con step",
+      "istruttore": "Anna Romano",
+      "durata": 45,
+      "capacitaMassima": 20,
+      "numeroPartecipanti": 0,
+      "image": "http://localhost:3000/images/c-9.jpg"
+    },
+    {
+      "id": "10",
+      "nome": "Functional Training",
+      "descrizione": "Allenamento funzionale completo",
+      "istruttore": "Paolo Conte",
+      "durata": 50,
+      "capacitaMassima": 15,
+      "numeroPartecipanti": 0,
+      "image": "http://localhost:3000/images/c-2.jpg"
+    }
+  ],
+  "partecipanti": [
+    {
+      "id": "1737558790094",
+      "nome": "Vale",
+      "cognome": "Sorohan",
+      "email": "vale@example.com",
+      "idCorso": "1"
+    },
+    {
+      "id": "1737559840124",
+      "nome": "vale",
+      "cognome": "sorohan",
+      "email": "specia@gmail.com",
+      "idCorso": "1"
+    },
+    {
+      "id": "1737560790775",
+      "nome": "vale",
+      "cognome": "vale",
+      "email": "email@gmail.com",
+      "idCorso": "1"
+    },
+    {
+      "id": "1737668196933",
+      "nome": "nico",
+      "cognome": "nico",
+      "email": "nico@gmail.com",
+      "idCorso": "1"
+    },
+    {
+      "id": "1737668333689",
+      "nome": "stefano",
+      "cognome": "stefano",
+      "email": "stefano@gmail.com",
+      "idCorso": "1"
+    },
+    {
+      "id": "1737708010734",
+      "nome": "ale",
+      "cognome": "ale",
+      "email": "ale@gmail.com",
+      "idCorso": "2"
+    }
+  ]
+}

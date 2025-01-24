@@ -1,0 +1,21 @@
+<div class="card" style="width: 19rem; height: 20rem">
+  <img
+    src="{{ corso().image }}"
+    class="card-img-top h-50 object-fit-cover"
+    alt="..."
+  />
+  <div class="card-body">
+    <h5 class="card-title">{{ corso().nome }}</h5>
+    <p class="card-text">
+      {{ corso().descrizione }}
+    </p>
+
+    <a
+      [routerLink]="[corso().id]"
+      class="btn btn-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+      >Prenota Corso</a
+    >
+  </div>
+</div>

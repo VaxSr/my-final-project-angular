@@ -1,0 +1,68 @@
+<div class="card" style="width: 18rem">
+  <!-- <img src="path/to/your/image.jpg" class="card-img-top" alt="Course image"> -->
+  <div class="card-body">
+    <h4 class="card-title">{{ corso()?.nome }}</h4>
+    <p class="card-text">{{ corso()?.descrizione }}</p>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Istruttore: {{ corso()?.istruttore }}</li>
+      <li class="list-group-item">Durata: {{ corso()?.durata }} minuti</li>
+      <li class="list-group-item">
+        Prenotazioni max: {{ corso()?.capacitaMassima }}
+      </li>
+      <li class="list-group-item">
+        Prenotazioni attuali: {{ corso()?.numeroPartecipanti }}
+      </li>
+    </ul>
+  </div>
+</div>
+
+@if((corso()?.numeroPartecipanti ?? 0) < (corso()?.capacitaMassima ?? 0)) {
+
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
+  <div class="mb-3">
+    <label for="nome" class="form-label">Nome</label>
+    <input
+      type="text"
+      class="form-control"
+      id="nome"
+      [formControl]="form.controls.nome"
+      required=""
+    />
+    @if(isNotNomeValid){
+    <p class="text-danger">Nome non valido</p>
+    }
+  </div>
+  <div class="mb-3">
+    <label for="cognome" class="form-label">Cognome</label>
+    <input
+      type="text"
+      class="form-control"
+      id="cognome"
+      [formControl]="form.controls.cognome"
+      required=""
+    />
+    @if(isNotCognomeValid){
+    <p class="text-danger">Cognome non valido</p>
+    }
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input
+      type="email"
+      class="form-control"
+      id="email"
+      [formControl]="form.controls.email"
+      required=""
+    />
+    @if(isNotEmailValid){
+    <p class="text-danger">Email non valida</p>
+    }
+  </div>
+
+  <button type="submit" [disabled]="!isFormValid" class="btn btn-primary">
+    Submit
+  </button>
+</form>
+}@else {
+<p>Corso non disponibile, capacità massiama raggiunta!</p>
+}
