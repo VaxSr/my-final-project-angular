@@ -15,15 +15,23 @@ import { CorsiService } from '../../corsi/corsi.service';
   styleUrl: './add-corso.component.css',
 })
 export class AddCorsoComponent {
+  // Input per controllare la visibilità del componente
   isOpen = input.required<boolean>();
+  // Output per emettere l'evento di chiusura
   close = output();
 
   corsiService = inject(CorsiService);
 
+  /**
+   * Gestisce la chiusura del componente
+   */
   onClose() {
     this.close.emit();
   }
 
+  /**
+   * Form per l'inserimento dei dati del corso
+   */
   form = new FormGroup({
     nome: new FormControl('', {
       validators: [Validators.required],
@@ -42,6 +50,10 @@ export class AddCorsoComponent {
     }),
   });
 
+  /**
+   * Gestisce l'invio del form
+   * Crea un nuovo corso e lo invia al server
+   */
   onSubmit() {
     console.log(this.form.value);
 

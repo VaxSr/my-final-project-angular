@@ -17,6 +17,10 @@ export class AmministrazioneComponent implements OnInit {
 
   isOpenDialog = signal<boolean>(false);
 
+  /**
+   * Mostra un messaggio toast temporaneo all'utente
+   * @param message Il messaggio da mostrare nel toast
+   */
   toggleToast(message: string) {
     const toast = document.getElementById('toast');
     if (toast) {
@@ -30,6 +34,10 @@ export class AmministrazioneComponent implements OnInit {
     }
   }
 
+  /**
+   * Gestisce l'apertura e chiusura del dialog
+   * Aggiorna la lista dei corsi quando il dialog viene chiuso
+   */
   toggleDialog() {
     this.isOpenDialog.set(!this.isOpenDialog());
     if (!this.isOpenDialog()) {
@@ -37,6 +45,9 @@ export class AmministrazioneComponent implements OnInit {
     }
   }
 
+  /**
+   * Recupera la lista dei corsi dal server
+   */
   fetchCorsi() {
     this.corsiService.getCorsi().subscribe({
       next: (corsi) => {
@@ -44,6 +55,11 @@ export class AmministrazioneComponent implements OnInit {
       },
     });
   }
+
+  /**
+   * Elimina un corso specifico
+   * @param id L'identificativo del corso da eliminare
+   */
   deleteCorso(id: string) {
     this.corsiService.deleteCorso(id).subscribe({
       next: () => {
@@ -52,6 +68,10 @@ export class AmministrazioneComponent implements OnInit {
       },
     });
   }
+
+  /**
+   * Inizializza il componente caricando la lista dei corsi
+   */
   ngOnInit(): void {
     this.fetchCorsi();
   }

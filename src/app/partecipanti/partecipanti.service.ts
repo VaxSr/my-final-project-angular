@@ -9,6 +9,11 @@ export class PartecipantiService {
   private url = 'http://localhost:3000/partecipanti';
   private httpClient = inject(HttpClient);
 
+  /**
+   * Recupera i partecipanti filtrati per idCorso
+   * @param idCorso - ID del corso per filtrare i partecipanti
+   * @returns Observable di array di Partecipante filtrato e invertito
+   */
   getPartecipanti(idCorso: string) {
     return this.httpClient
       .get<Partecipante[]>(`${this.url}`)
@@ -20,6 +25,12 @@ export class PartecipantiService {
         )
       );
   }
+
+  /**
+   * Aggiunge un nuovo partecipante al corso
+   * @param partecipante - Oggetto partecipante da aggiungere
+   * @param idCorso - ID del corso a cui aggiungere il partecipante
+   */
   postPartecipante(partecipante: Partecipante, idCorso: string) {
     return this.httpClient
       .post<Partecipante>(this.url, {
@@ -37,6 +48,10 @@ export class PartecipantiService {
       });
   }
 
+  /**
+   * Elimina tutti i partecipanti associati a un corso
+   * @param idCorso - ID del corso per cui eliminare i partecipanti
+   */
   deletePartecipanteByCorso(idCorso: string) {
     this.httpClient.get<Partecipante[]>(this.url).subscribe({
       next: (partecipanti) => {

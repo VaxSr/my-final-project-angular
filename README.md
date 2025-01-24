@@ -1,5 +1,18 @@
 # Esame finale Angular
 
+### Tecnologie utilizzate
+
+- Angular
+- Bootstrap
+- Json-server
+
+### Installazione
+
+- Clonare il repository
+- Eseguire il comando `npm install`
+- Eseguire il comando `json-server --watch ./backend/db.json -s ./backend/public`
+- Eseguire il comando `ng serve -o`
+
 ### Routes
 
 - Home
